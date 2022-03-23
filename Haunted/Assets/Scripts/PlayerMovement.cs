@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody m_Rigidbody;
 
     public float turnSpeed = 20f;
+    public float speed = .5f;
 
     AudioSource m_AudioSource;
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
         m_Movement.Set(horizontal, 0f, vertical);
         m_Movement.Normalize();
+        m_Movement *= speed;
 
         bool hasHorizontalInput = !Mathf.Approximately(horizontal, 0f);
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
