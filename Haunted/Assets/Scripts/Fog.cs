@@ -16,7 +16,8 @@ public class Fog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.back * rotateSpeed * Time.deltaTime);
-        transform.position -= Vector3.down * fallSpeed * Time.deltaTime;
+        //transform.Rotate(Vector3.back * rotateSpeed * Time.deltaTime);
+        //transform.position -= Vector3.down * fallSpeed * Time.deltaTime;
+        transform.position += Vector3.right * .5f * Time.deltaTime;
     }
 }
