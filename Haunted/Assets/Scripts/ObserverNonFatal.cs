@@ -6,8 +6,10 @@ public class ObserverNonFatal : MonoBehaviour
 {
     public Transform player;
     public GameObject ghost;
+    public float ghostHuntTime;
 
-    private GameObject ghostInstance = null;
+    GameObject ghostInstance = null;
+    bool ghostHunting = false;
 
     bool m_IsPlayerInRange = false;
 
@@ -28,9 +30,11 @@ public class ObserverNonFatal : MonoBehaviour
             RaycastHit raycastHit;
             if (Physics.Raycast(ray, out raycastHit))
             {
-                if (raycastHit.collider.transform == player)
+                if (raycastHit.collider.transform == player && !ghostHunting)
                 {
-                    ghostInstance = Instantiate(ghost);
+                    ghostInstance = Instantiate(ghost, transform.position, transform.rotation);
+                    ghostHunting = true;
+                    Invoke(nameof(GhostHuntEnd), ghostHuntTime);
                 }
             }
         }
@@ -50,5 +54,11 @@ public class ObserverNonFatal : MonoBehaviour
             m_IsPlayerInRange = false;
         }
         // start timer until ghost destroys itself
+    }
+
+    private void GhostHuntEnd()
+    {
+        Destroy(ghostInstance);
+        ghostHunting = false;
     }
 }
