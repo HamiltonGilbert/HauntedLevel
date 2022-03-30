@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class PlayerSight : MonoBehaviour
 {
+    public Transform ghost;
     [SerializeField] WaypointPatrol waypointPatrol;
-    [SerializeField] ObserverNonFatal observerNonFatal;
-    bool GhostInSight { get; set; }
+    //[SerializeField] ObserverNonFatal observerNonFatal;
+    //bool GhostInSight { get; set; }
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.transform == ghost)
+        {
+            waypointPatrol.InPlayerSight = true;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.transform == ghost)
+        {
+            waypointPatrol.InPlayerSight = false;
+        }
     }
 }

@@ -3923,6 +3923,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gargoyle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7512443343472392452, guid: 3f78ca990cb8f6c4587991db7d76eedf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7512443343472485668, guid: 3f78ca990cb8f6c4587991db7d76eedf,
         type: 3}
       propertyPath: m_RootOrder
@@ -4541,6 +4546,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5685917020430980032}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1028850246 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8705670334518692438, guid: 63bb7e43948388248b782cce933583be,
+    type: 3}
+  m_PrefabInstance: {fileID: 662308564932794248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6239a4873ecdd8d43afbc7019cfd21ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1037428932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4735,8 +4752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c145a83952e0f4d5caf769fb9725e837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointPatrol: {fileID: 0}
-  observerNonFatal: {fileID: 0}
+  ghost: {fileID: 719396005591548772}
+  waypointPatrol: {fileID: 1028850246}
 --- !u!136 &1201669551
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5183,6 +5200,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gargoyle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7512443343472392452, guid: 3f78ca990cb8f6c4587991db7d76eedf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7512443343472485668, guid: 3f78ca990cb8f6c4587991db7d76eedf,
         type: 3}
       propertyPath: m_RootOrder
@@ -5303,7 +5325,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 30
+  m_CookingOptions: 14
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1612500060
 MeshRenderer:
@@ -5973,6 +5995,11 @@ PrefabInstance:
       propertyPath: gameEnding
       value: 
       objectReference: {fileID: 1541429887}
+    - target: {fileID: 8705670334518692438, guid: 63bb7e43948388248b782cce933583be,
+        type: 3}
+      propertyPath: playerSight
+      value: 
+      objectReference: {fileID: 1201669550}
     - target: {fileID: 8705670334518692438, guid: 63bb7e43948388248b782cce933583be,
         type: 3}
       propertyPath: waypoints.Array.size

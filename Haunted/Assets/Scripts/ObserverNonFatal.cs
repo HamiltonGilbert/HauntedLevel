@@ -9,7 +9,7 @@ public class ObserverNonFatal : MonoBehaviour
     public float ghostHuntTime;
 
     GameObject ghostInstance = null;
-    bool GhostHunting { get; set; }
+    public bool GhostHunting { get; set; }
 
     bool m_IsPlayerInRange = false;
 

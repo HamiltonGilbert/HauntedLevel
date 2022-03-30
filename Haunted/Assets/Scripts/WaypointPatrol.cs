@@ -10,7 +10,7 @@ public class WaypointPatrol : MonoBehaviour
 
     int m_CurrentWaypointIndex;
 
-    bool InPlayerSight { get; set; }
+    public bool InPlayerSight { get; set; }
 
     void Start()
     {
@@ -19,10 +19,14 @@ public class WaypointPatrol : MonoBehaviour
 
     void Update()
     {
-        if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && InPlayerSight)
+        if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
         {
             m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+        }
+        if (InPlayerSight)
+        {
+            navMeshAgent.SetDestination(transform.position);
         }
     }
 }
