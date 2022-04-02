@@ -495,8 +495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6239a4873ecdd8d43afbc7019cfd21ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 1300563614032453422}
+  player: {fileID: 0}
   waypoints: []
+  navMeshAgent: {fileID: 1300563614032453422}
 --- !u!82 &5949924580657633788
 AudioSource:
   m_ObjectHideFlags: 0
@@ -961,12 +962,12 @@ PrefabInstance:
     - target: {fileID: 1910750181734489592, guid: 4d0e263e077bbb84eae18f2b4bf1603f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1910750181734489592, guid: 4d0e263e077bbb84eae18f2b4bf1603f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.4
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1910750181734489592, guid: 4d0e263e077bbb84eae18f2b4bf1603f,
         type: 3}
@@ -1002,6 +1003,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028004623260027360, guid: 4d0e263e077bbb84eae18f2b4bf1603f,
+        type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028004623260027360, guid: 4d0e263e077bbb84eae18f2b4bf1603f,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028004623260027360, guid: 4d0e263e077bbb84eae18f2b4bf1603f,
+        type: 3}
+      propertyPath: m_Direction
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d0e263e077bbb84eae18f2b4bf1603f, type: 3}

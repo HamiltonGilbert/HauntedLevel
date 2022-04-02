@@ -12,21 +12,33 @@ public class WaypointPatrol : MonoBehaviour
     public bool InPlayerSight { get; set; }
     public bool IsHunting { get; set; }
 
+    private void Start()
+    {
+        ResetGhost();
+    }
+
     void Update()
     {
-        if (InPlayerSight && IsHunting)
+        if (IsHunting)
         {
-            navMeshAgent.SetDestination(transform.position);
+            if (InPlayerSight)
+            {
+                navMeshAgent.SetDestination(transform.position);
+            }
+            else
+            {
+                navMeshAgent.SetDestination(player.position);
+            }
         }
         else
         {
-            navMeshAgent.SetDestination(player.position);
+            navMeshAgent.SetDestination(transform.position);
         }
     }
 
-    public void EndHunt()
+    public void ResetGhost()
     {
-        int index = Random.Range(0, 10);
+        int index = Random.Range(0, 9);
         transform.position = waypoints[index].position;
     }
 }

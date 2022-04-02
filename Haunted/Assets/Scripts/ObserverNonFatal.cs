@@ -5,13 +5,11 @@ using UnityEngine;
 public class ObserverNonFatal : MonoBehaviour
 {
     public Transform player;
-    public WaypointPatrol ghost;
+    public WaypointPatrol wayPointPatrol;
     public float ghostHuntTime;
+    public bool ghostHunting;
 
-    GameObject ghostInstance = null;
-    public bool GhostHunting { get; set; }
-
-    bool m_IsPlayerInRange = false;
+    bool m_IsPlayerInRange;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +28,10 @@ public class ObserverNonFatal : MonoBehaviour
             RaycastHit raycastHit;
             if (Physics.Raycast(ray, out raycastHit))
             {
-                if (raycastHit.collider.transform == player && !GhostHunting)
+                if (raycastHit.collider.transform == player && !ghostHunting)
                 {
-                    ghost.IsHunting = true;
+                    ghostHunting = true;
+                    wayPointPatrol.IsHunting = true;
                     Invoke(nameof(GhostHuntEnd), ghostHuntTime);
                 }
             }
@@ -52,13 +51,12 @@ public class ObserverNonFatal : MonoBehaviour
         {
             m_IsPlayerInRange = false;
         }
-        // start timer until ghost destroys itself
     }
 
     private void GhostHuntEnd()
     {
-        ghost.IsHunting = true;
-        ghost.EndHunt();
-        GhostHunting = false;
+        wayPointPatrol.ResetGhost();
+        wayPointPatrol.IsHunting = false;
+        ghostHunting = false;
     }
 }
