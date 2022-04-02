@@ -6,16 +6,15 @@ using UnityEngine.AI;
 public class WaypointPatrol : MonoBehaviour
 {
     [SerializeField] Transform player;
+    [SerializeField] Transform[] waypoints;
     public NavMeshAgent navMeshAgent;
-    public Transform[] waypoints;
-
-    int m_CurrentWaypointIndex;
 
     public bool InPlayerSight { get; set; }
+    public bool IsHunting { get; set; }
 
     void Update()
     {
-        if (InPlayerSight)
+        if (InPlayerSight && IsHunting)
         {
             navMeshAgent.SetDestination(transform.position);
         }
@@ -23,5 +22,11 @@ public class WaypointPatrol : MonoBehaviour
         {
             navMeshAgent.SetDestination(player.position);
         }
+    }
+
+    public void EndHunt()
+    {
+        int index = Random.Range(0, 10);
+        transform.position = waypoints[index].position;
     }
 }

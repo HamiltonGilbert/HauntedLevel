@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObserverNonFatal : MonoBehaviour
 {
     public Transform player;
-    public GameObject ghost;
+    public WaypointPatrol ghost;
     public float ghostHuntTime;
 
     GameObject ghostInstance = null;
@@ -32,8 +32,7 @@ public class ObserverNonFatal : MonoBehaviour
             {
                 if (raycastHit.collider.transform == player && !GhostHunting)
                 {
-                    ghostInstance = Instantiate(ghost, transform.position, transform.rotation);
-                    GhostHunting = true;
+                    ghost.IsHunting = true;
                     Invoke(nameof(GhostHuntEnd), ghostHuntTime);
                 }
             }
@@ -58,7 +57,8 @@ public class ObserverNonFatal : MonoBehaviour
 
     private void GhostHuntEnd()
     {
-        Destroy(ghostInstance);
+        ghost.IsHunting = true;
+        ghost.EndHunt();
         GhostHunting = false;
     }
 }
