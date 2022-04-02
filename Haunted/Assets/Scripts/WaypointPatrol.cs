@@ -7,10 +7,11 @@ public class WaypointPatrol : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] Transform[] waypoints;
+    [SerializeField] new Renderer renderer;
     public NavMeshAgent navMeshAgent;
 
     public bool InPlayerSight { get; set; }
-    public bool IsHunting { get; set; }
+    public bool isHunting;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class WaypointPatrol : MonoBehaviour
 
     void Update()
     {
-        if (IsHunting)
+        if (isHunting)
         {
             if (InPlayerSight)
             {
@@ -38,7 +39,15 @@ public class WaypointPatrol : MonoBehaviour
 
     public void ResetGhost()
     {
+        isHunting = false;
         int index = Random.Range(0, 9);
         transform.position = waypoints[index].position;
+        renderer.enabled = false;
+    }
+
+    public void StartHunt()
+    {
+        renderer.enabled = true;
+        isHunting = true;
     }
 }

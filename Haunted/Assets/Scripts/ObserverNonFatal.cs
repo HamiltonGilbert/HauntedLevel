@@ -31,7 +31,7 @@ public class ObserverNonFatal : MonoBehaviour
                 if (raycastHit.collider.transform == player && !ghostHunting)
                 {
                     ghostHunting = true;
-                    wayPointPatrol.IsHunting = true;
+                    wayPointPatrol.StartHunt();
                     Invoke(nameof(GhostHuntEnd), ghostHuntTime);
                 }
             }
@@ -56,7 +56,6 @@ public class ObserverNonFatal : MonoBehaviour
     private void GhostHuntEnd()
     {
         wayPointPatrol.ResetGhost();
-        wayPointPatrol.IsHunting = false;
         ghostHunting = false;
     }
 }

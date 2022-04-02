@@ -497,7 +497,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   waypoints: []
+  renderer: {fileID: 0}
   navMeshAgent: {fileID: 1300563614032453422}
+  isHunting: 0
 --- !u!82 &5949924580657633788
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1012,7 +1014,7 @@ PrefabInstance:
     - target: {fileID: 2028004623260027360, guid: 4d0e263e077bbb84eae18f2b4bf1603f,
         type: 3}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2028004623260027360, guid: 4d0e263e077bbb84eae18f2b4bf1603f,
         type: 3}
