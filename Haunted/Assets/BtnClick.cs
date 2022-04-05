@@ -11,7 +11,7 @@ public class BtnClick : MonoBehaviour
     }
     public void BtnNewScene()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Game");
     }
 
 }
